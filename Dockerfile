@@ -25,8 +25,9 @@ RUN pip install tifffile
 RUN pip install h5py
 # RUN pip install pathlib
 
-
-ADD classifynwms_v3.py /app/classifynwms_v3.py
+ADD descriptor.json /app/descriptor.json
+RUN mkdir -p /app
 ADD weights.best_v10b_100ep_cc_LR_01val.h5 /app/weights.best_v10b_100ep_cc_LR_01val.h5
+ADD classifynwms_v3.py /app/classifynwms_v3.py
 
-ENTRYPOINT ["python", "/app/classifynwms_v3.py"]
+ENTRYPOINT ["python3", "/app/classifynwms_v3.py"]
