@@ -51,6 +51,7 @@ import matplotlib.pyplot as plt
 import time
 import cv2
 import math
+from pathlib import Path
 
 
 
@@ -96,6 +97,7 @@ def run(cyto_job, parameters):
 
     start_time=time.time()
 
+    model_dir = "models"
     model_name = "weights.best_v10b_100ep_cc_LR_01val.h5"
 
     list_imgs = []
@@ -107,11 +109,13 @@ def run(cyto_job, parameters):
         print(list_imgs)
 
     working_path = os.path.join("tmp", str(job.id))
-
-
+    base_path=str(Path.home())
+    model_path = os.path.join(base_path, model_dir, model_name)
+    print("Model path:", model_path)
+    
     print('Loading model.....')
     model = densemodel()
-    model.load_weights(model_name)
+    model.load_weights(model_path)
     print('Model successfully loaded!')
     IMAGE_CLASSES = ['c0', 'c1', 'c2', 'c3']
     IMAGE_WIDTH, IMAGE_HEIGHT = (224, 224)
