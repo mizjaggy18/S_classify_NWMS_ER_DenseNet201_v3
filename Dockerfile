@@ -25,13 +25,13 @@ RUN pip install tifffile
 RUN pip install h5py
 # RUN pip install pathlib
 
-RUN mkdir -p /models 
-ADD weights.best_v10b_100ep_cc_LR_01val.h5 /models/weights.best_v10b_100ep_cc_LR_01val.h5
-RUN chmod 444 /models/weights.best_v10b_100ep_cc_LR_01val.h5
+# RUN mkdir -p /models 
+# ADD weights.best_v10b_100ep_cc_LR_01val.h5 /models/weights.best_v10b_100ep_cc_LR_01val.h5
+# RUN chmod 444 /models/weights.best_v10b_100ep_cc_LR_01val.h5
 
 
 RUN mkdir -p /app
-# ADD weights.best_v10b_100ep_cc_LR_01val.h5 /app/weights.best_v10b_100ep_cc_LR_01val.h5
+ADD weights.best_v10b_100ep_cc_LR_01val.h5 /app/weights.best_v10b_100ep_cc_LR_01val.h5
 ADD descriptor.json /app/descriptor.json
 ADD classifynwms_v3.py /app/classifynwms_v3.py
 
