@@ -111,7 +111,7 @@ def run(cyto_job, parameters):
     working_path = os.path.join("tmp", str(job.id))
     base_path=str(Path.home())
     current_dir = os.path.dirname(__file__)
-    model_path = os.path.join(current_dir, model_dir, model_name)
+    model_path = os.path.join(current_dir, model_name)
 #     model_path = os.path.join(base_path, model_dir, model_name)
     print("Model path:", model_path)
     
